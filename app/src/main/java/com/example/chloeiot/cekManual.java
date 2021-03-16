@@ -32,7 +32,7 @@ public class cekManual extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cek_manual);
-
+                    //keren ajaa
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //bikin tombol back
 
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'></font>")); //SET TOP NAV TITLE
