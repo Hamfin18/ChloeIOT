@@ -55,7 +55,7 @@ public class Home extends AppCompatActivity {
         ButtonTask.setOnClickListener(new View.OnClickListener() {           //KLIK TOMBOL TASK
             @Override
             public void onClick(View view) {
-
+                openTask();
             }
         });
 
