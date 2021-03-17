@@ -7,10 +7,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.text.Html;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,8 +30,9 @@ public class StoryActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference root = db.getReference().child("Artikel");
-    private AdapterStory adapter;
-    private ArrayList<Model> list;
+
+    private FirebaseRecyclerOptions<Model> options;
+    private FirebaseRecyclerAdapter<Model,AdapterStory> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,28 +45,25 @@ public class StoryActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        list= new ArrayList<>();
-        adapter = new AdapterStory(this,list);
+        options = new FirebaseRecyclerOptions.Builder<Model>().setQuery(root,Model.class).build();
+        adapter = new FirebaseRecyclerAdapter<Model, AdapterStory>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull AdapterStory holder, int position, @NonNull Model model) {
+                holder.textViewJudul.setText(""+model.getJudul());
+                holder.textViewIsi.setText(""+model.getIsi());
+
+            }
+
+            @NonNull
+            @Override
+            public AdapterStory onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View v =LayoutInflater.from(parent.getContext()).inflate(R.layout.story_item,parent,false);
+
+                return new AdapterStory(v);
+            }
+        };
+        adapter.startListening();
         recyclerView.setAdapter(adapter);
-
-        root.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                for(DataSnapshot dataSnapshot1 :dataSnapshot.getChildren() ){
-                    Model model = dataSnapshot1.getValue(Model.class);
-                    list.add(model);
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
     }
 
 
