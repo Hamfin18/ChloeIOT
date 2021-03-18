@@ -14,11 +14,13 @@ import java.util.ArrayList;
 public class AdapterStory extends RecyclerView.ViewHolder {
 
     TextView textViewJudul,textViewIsi;
+    View view;
 
     public AdapterStory(@NonNull View itemView) {
         super(itemView);
 
         textViewJudul=itemView.findViewById(R.id.judulnya);
         textViewIsi =itemView.findViewById(R.id.isian);
+        view = itemView;
     }
 }

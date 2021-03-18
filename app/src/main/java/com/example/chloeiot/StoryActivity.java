@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -28,8 +29,7 @@ public class StoryActivity extends AppCompatActivity {
 
     TextView isiText;
     private RecyclerView recyclerView;
-    private FirebaseDatabase db = FirebaseDatabase.getInstance();
-    private DatabaseReference root = db.getReference().child("Artikel");
+    private DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Artikel");
 
     private FirebaseRecyclerOptions<Model> options;
     private FirebaseRecyclerAdapter<Model,AdapterStory> adapter;
@@ -45,10 +45,22 @@ public class StoryActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        options = new FirebaseRecyclerOptions.Builder<Model>().setQuery(root,Model.class).build();
+        options = new FirebaseRecyclerOptions.Builder<Model>().setQuery(db,Model.class).build();
         adapter = new FirebaseRecyclerAdapter<Model, AdapterStory>(options) {
             @Override
             protected void onBindViewHolder(@NonNull AdapterStory holder, int position, @NonNull Model model) {
+
+                final String key =getRef(position).getKey();
+
+                holder.view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent =new Intent(getApplicationContext(),TargetStory.class);
+                        intent.putExtra("key",key);
+
+                        startActivity(intent);
+                    }
+                });
                 holder.textViewJudul.setText(""+model.getJudul());
                 holder.textViewIsi.setText(""+model.getIsi());
 
