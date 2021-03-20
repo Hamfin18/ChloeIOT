@@ -1,14 +1,25 @@
 package com.example.chloeiot;
 
-public class Model {
+import android.widget.ImageView;
 
-    String judul,isi;
+public class ModelStory {
 
-    public Model() {
+    String judul,isi,foto;
+
+    public String getFoto() {
+        return foto;
     }
-    public Model(String judul, String isi) {
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public ModelStory() {
+    }
+    public ModelStory(String judul, String isi, String foto) {
         this.judul = judul;
         this.isi = isi;
+        this.foto=foto;
     }
 
     public String getJudul() {

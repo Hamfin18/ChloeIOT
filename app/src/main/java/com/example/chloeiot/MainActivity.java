@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void run() {
 
-            Intent intent =new Intent(MainActivity.this,Home.class);
+            Intent intent =new Intent(MainActivity.this, HomeActivity.class);
             startActivity(intent);
             //animasi fade in fade out
             overridePendingTransition(R.anim.fade_in,R.anim.fade_out);

@@ -31,12 +31,12 @@ public class NotificationWatering extends AppCompatActivity {
                     case R.id.navigation_notifications:
                         return true;
                     case R.id.navigation_home:
-                        startActivity(new Intent(getApplicationContext(),Home.class));
+                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         overridePendingTransition(0,0);
                         finish();
                         return true;
                     case R.id.navigation_setting:
-                        startActivity(new Intent(getApplicationContext(),About.class));
+                        startActivity(new Intent(getApplicationContext(), AboutActivity.class));
                         overridePendingTransition(0,0);
                         finish();
                         return true;
@@ -49,7 +49,7 @@ public class NotificationWatering extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(getApplicationContext(),Home.class));
+        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
         overridePendingTransition(0,0);
 
     }

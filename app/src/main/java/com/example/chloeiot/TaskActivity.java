@@ -1,9 +1,7 @@
 package com.example.chloeiot;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class cekManual extends AppCompatActivity {
+public class TaskActivity extends AppCompatActivity {
 
         private Button buttCekSuhu,buttSiram ;
         private ProgressBar progBar;
@@ -31,7 +29,7 @@ public class cekManual extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cek_manual);
+        setContentView(R.layout.activity_task);
                     //keren ajaa
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //bikin tombol back
 

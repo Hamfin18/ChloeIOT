@@ -7,31 +7,54 @@
     tools:context=".TargetStory"
     android:orientation="vertical">
 
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <TextView
+            android:id="@+id/judulnya"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="judul"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.842"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.042"
+            tools:layout_marginEnd="10dp"
+            tools:layout_marginStart="10dp" />
+        <ImageView
+            android:id="@+id/fotonya"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
 
-    <TextView
-        android:id="@+id/judulnya"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="keren"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042" />
-
-    <TextView
-        android:id="@+id/isinya"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginBottom="84dp"
-        android:text="Banget"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/judulnya"
-        app:layout_constraintVertical_bias="0.368" />
-
+        <TextView
+            android:id="@+id/isinya"
+            android:textSize="20sp"
+            android:justificationMode="inter_word"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/isi"
+            android:lineSpacingExtra="5sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fotonya"
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_marginEnd="10dp"
+            tools:layout_marginStart="10dp" />
+        </LinearLayout>
+</ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

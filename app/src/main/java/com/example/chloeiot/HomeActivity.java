@@ -4,24 +4,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class About extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
+    private Button ButtonTask;
+    private Button ButtonStory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+        setContentView(R.layout.activity_home);
 
-        getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'>About</font>")); //SET TOP NAV TITLE
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'>Home</font>")); //SET TOP NAV TITLE
         // initialization
         BottomNavigationView bottomNavigationView =findViewById(R.id.bottom_navigation);
         //set home selected
-        bottomNavigationView.setSelectedItemId(R.id.navigation_setting);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
         //perform item selected listener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -29,27 +33,48 @@ public class About extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.navigation_notifications:
                         startActivity(new Intent(getApplicationContext(),NotificationWatering.class));
-//                        overridePendingTransition(0,0);
                         overridePendingTransition(0,0);
                         finish();
                         return true;
                     case R.id.navigation_home:
-                        startActivity(new Intent(getApplicationContext(),Home.class));
-                        overridePendingTransition(0,0);
-                        finish();
                         return true;
                     case R.id.navigation_setting:
+                        startActivity(new Intent(getApplicationContext(), AboutActivity.class));
+                        overridePendingTransition(0,0);
+                        finish();
                         return true;
                 }
                 return false;
             }
         });
 
-    }
-    public void onBackPressed() {
-        super.onBackPressed();
-        startActivity(new Intent(getApplicationContext(),Home.class));
-        overridePendingTransition(0,0);
+        ButtonTask=(Button)findViewById(R.id.ButtonCek);
+        ButtonStory=(Button)findViewById(R.id.ButtonStory);
 
+        ButtonTask.setOnClickListener(new View.OnClickListener() {           //KLIK TOMBOL TASK
+            @Override
+            public void onClick(View view) {
+                openTask();
+            }
+        });
+
+        ButtonStory.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                openStory();
+            }
+        });
+
+
+    }
+    public void openTask(){
+
+        Intent intent =new Intent(this, TaskActivity.class);
+        startActivity(intent);
+    }
+    public void openStory(){
+        Intent intent =new Intent (this,StoryActivity.class);
+        startActivity(intent);
     }
 }

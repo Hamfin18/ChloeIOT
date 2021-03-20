@@ -9,24 +9,24 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Home extends AppCompatActivity {
-
-    private Button ButtonTask;
-    private Button ButtonStory;
+public class AboutActivity extends AppCompatActivity {
+    Button appInfo,help;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_about);
 
-        getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'>Home</font>")); //SET TOP NAV TITLE
+        appInfo =(Button)findViewById(R.id.AppInfoButton);
+        help=(Button)findViewById(R.id.helpButton);
+
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'>About</font>")); //SET TOP NAV TITLE
         // initialization
         BottomNavigationView bottomNavigationView =findViewById(R.id.bottom_navigation);
         //set home selected
-        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_setting);
         //perform item selected listener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -34,48 +34,43 @@ public class Home extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.navigation_notifications:
                         startActivity(new Intent(getApplicationContext(),NotificationWatering.class));
+//                        overridePendingTransition(0,0);
                         overridePendingTransition(0,0);
                         finish();
                         return true;
                     case R.id.navigation_home:
-                        return true;
-                    case R.id.navigation_setting:
-                        startActivity(new Intent(getApplicationContext(),About.class));
+                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         overridePendingTransition(0,0);
                         finish();
+                        return true;
+                    case R.id.navigation_setting:
                         return true;
                 }
                 return false;
             }
         });
 
-        ButtonTask=(Button)findViewById(R.id.ButtonCek);
-        ButtonStory=(Button)findViewById(R.id.ButtonStory);
-
-        ButtonTask.setOnClickListener(new View.OnClickListener() {           //KLIK TOMBOL TASK
+        //ON CLICK APPINFO BUTTON
+        appInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openTask();
+                Intent intent =new Intent(AboutActivity.this,AppInfoActivity.class);
+                startActivity(intent);
+            }
+        });
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(AboutActivity.this,HelpActivity.class);
+                startActivity(intent);
             }
         });
 
-        ButtonStory.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view) {
-                openStory();
-            }
-        });
-
-
     }
-    public void openTask(){
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+        overridePendingTransition(0,0);
 
-        Intent intent =new Intent(this,cekManual.class);
-        startActivity(intent);
-    }
-    public void openStory(){
-        Intent intent =new Intent (this,StoryActivity.class);
-        startActivity(intent);
     }
 }
