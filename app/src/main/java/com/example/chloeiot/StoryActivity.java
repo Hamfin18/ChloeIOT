@@ -37,8 +37,15 @@ public class StoryActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'></font>")); //SET TOP NAV TITLE
 
         recyclerView= findViewById(R.id.recyclerViewStory);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        SET TERIMA DATA TERBALIK
+        recyclerView.setLayoutManager(linearLayoutManager);
+
 
         options = new FirebaseRecyclerOptions.Builder<  ModelStory>().setQuery(db, ModelStory.class).build();
         adapter = new FirebaseRecyclerAdapter<ModelStory, AdapterStory>(options) {

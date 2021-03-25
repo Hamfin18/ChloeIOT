@@ -37,6 +37,7 @@ public class TargetStory extends AppCompatActivity {
         ref.child(key).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 String judul = snapshot.child("judul").getValue().toString();
                 String isi  = snapshot.child("isi").getValue().toString();
                 String foto = snapshot.child("foto").getValue().toString();

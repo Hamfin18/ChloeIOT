@@ -37,8 +37,14 @@ public class HelpActivity extends AppCompatActivity {
 
         feedbackButton =(Button)findViewById(R.id.feedback_help);
         recyclerView =(RecyclerView)findViewById(R.id.recyclerViewHelp);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
+
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        SET TERIMA DATA TERBALIK
+        recyclerView.setLayoutManager(linearLayoutManager);
 
 //        AMBIL DATA DARI FIREBASE
         options = new FirebaseRecyclerOptions.Builder<ModelHelp>().setQuery(db, ModelHelp.class).build();
