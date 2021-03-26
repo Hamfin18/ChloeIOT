@@ -1,45 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="225dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
     app:cardCornerRadius="10dp"
     android:padding="10dp"
-    android:layout_margin="5dp">
+    android:layout_margin="5dp"
+    >
 
     <LinearLayout
-        android:padding="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-    
+        android:layout_height="145dp">
+
+        <ImageView
+            android:id="@+id/foto1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:background="@android:color/black"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:orientation="vertical"
+        android:layout_marginTop="116dp"
+        android:background="@color/ijo1"
+        >
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Judul"
                 android:id="@+id/judulnya"
                 android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="46dp"
             android:orientation="horizontal">
             <TextView
+                android:layout_marginStart="10dp"
+
                 android:id="@+id/isian"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
                 android:text="Isi"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:textSize="18sp"/>
         </LinearLayout>
     </LinearLayout>
-
+    <LinearLayout
+        android:layout_marginTop="200dp"
+        android:layout_marginStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Read More"
+            android:textColor="@color/oren"
+            android:textSize="10dp"
+            />
+    </LinearLayout>
 
 
 

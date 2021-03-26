@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -65,6 +66,7 @@ public class StoryActivity extends AppCompatActivity {
                 });
                 holder.textViewJudul.setText(""+ modelStory.getJudul());
                 holder.textViewIsi.setText(""+ modelStory.getIsi());
+                Glide.with(getApplicationContext()).load(modelStory.getFoto()).into(holder.imageViewFoto1);
 
             }
 
@@ -92,5 +94,9 @@ public class StoryActivity extends AppCompatActivity {
     }
     public boolean onCreateOptionsMenu(Menu menu) {     // ADD BACK BUTTON
         return true;
+    }
+
+    public  void jadi(String foto,AdapterStory story){
+
     }
 }

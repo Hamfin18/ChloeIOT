@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class AdapterStory extends RecyclerView.ViewHolder {
 
     TextView textViewJudul,textViewIsi;
-    ImageView imageViewFotonya;
+    ImageView imageViewFotonya,imageViewFoto1;
     View view;
 
     public AdapterStory(@NonNull View itemView) {
@@ -25,5 +25,6 @@ public class AdapterStory extends RecyclerView.ViewHolder {
         textViewIsi =itemView.findViewById(R.id.isian);
         view = itemView;
         imageViewFotonya=itemView.findViewById(R.id.fotonya);
+        imageViewFoto1=itemView.findViewById(R.id.foto1);
     }
 }
