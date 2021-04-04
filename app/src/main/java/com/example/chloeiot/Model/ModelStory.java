@@ -1,4 +1,4 @@
-package com.example.chloeiot;
+package com.example.chloeiot.Model;
 
 import android.widget.ImageView;
 

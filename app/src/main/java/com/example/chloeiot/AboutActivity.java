@@ -33,7 +33,7 @@ public class AboutActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.navigation_notifications:
-                        startActivity(new Intent(getApplicationContext(),NotificationWatering.class));
+                        startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
 //                        overridePendingTransition(0,0);
                         overridePendingTransition(0,0);
                         finish();

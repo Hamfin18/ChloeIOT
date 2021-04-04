@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.example.chloeiot.Adapter.AdapterStory;
+import com.example.chloeiot.Model.ModelStory;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -27,7 +29,7 @@ public class StoryActivity extends AppCompatActivity {
     private DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Artikel");
 
     private FirebaseRecyclerOptions<ModelStory> options;
-    private FirebaseRecyclerAdapter<ModelStory,AdapterStory> adapter;
+    private FirebaseRecyclerAdapter<ModelStory, AdapterStory> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

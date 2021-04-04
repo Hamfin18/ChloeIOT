@@ -1,4 +1,4 @@
-package com.example.chloeiot;
+package com.example.chloeiot.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,13 +10,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.chloeiot.R;
+
 import java.util.ArrayList;
 
 public class AdapterStory extends RecyclerView.ViewHolder {
 
-    TextView textViewJudul,textViewIsi;
-    ImageView imageViewFotonya,imageViewFoto1;
-    View view;
+    public TextView textViewJudul,textViewIsi;
+    public ImageView imageViewFotonya,imageViewFoto1;
+    public View view;
 
     public AdapterStory(@NonNull View itemView) {
         super(itemView);

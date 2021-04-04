@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.chloeiot.Adapter.AdapterAbout;
+import com.example.chloeiot.Model.ModelHelp;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -25,7 +27,7 @@ public class HelpActivity extends AppCompatActivity {
     private DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Pertanyaan");
     private Button feedbackButton;
     private FirebaseRecyclerOptions<ModelHelp> options;
-    private FirebaseRecyclerAdapter<ModelHelp,AdapterAbout> adapter;
+    private FirebaseRecyclerAdapter<ModelHelp, AdapterAbout> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

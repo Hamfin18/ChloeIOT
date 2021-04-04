@@ -17,7 +17,7 @@
         <activity android:name=".TargetStory" />
         <activity android:name=".StoryActivity" />
         <activity
-            android:name=".NotificationWatering"
+            android:name=".HistoryActivity"
             android:label="Notification" />
         <activity
             android:name=".AboutActivity"

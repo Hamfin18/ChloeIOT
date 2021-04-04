@@ -1,4 +1,4 @@
-package com.example.chloeiot;
+package com.example.chloeiot.Adapter;
 
 import android.view.View;
 import android.widget.TextView;
@@ -6,12 +6,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.chloeiot.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 
 public class AdapterAbout extends RecyclerView.ViewHolder {
 
-    TextView TVQuestion;
-    View view;
+   public TextView TVQuestion;
+    public View view;
+
     public AdapterAbout(@NonNull View itemView) {
         super(itemView);
 
