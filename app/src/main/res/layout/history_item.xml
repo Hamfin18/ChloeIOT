@@ -7,43 +7,48 @@
     app:cardCornerRadius="10dp"
     android:padding="10dp"
     android:layout_margin="5dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
         <LinearLayout
-            android:id="@+id/atas"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
+            <LinearLayout
+                android:id="@+id/atas"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/calender"
-                app:tint="@color/colorPrimaryDark" />
-            <TextView
-                android:textColor="@color/colorPrimaryDark"
-                android:id="@+id/date"
-                android:layout_marginTop="2dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="12-04-2020"/>
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/calender"
+                    app:tint="@color/colorPrimaryDark" />
+                <TextView
+                    android:textColor="@color/colorPrimaryDark"
+                    android:id="@+id/date"
+                    android:layout_marginTop="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12-04-2020"/>
+                <ImageView
+                    android:layout_marginStart="220dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/clock"
+                    app:tint="@color/colorPrimaryDark" />
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_marginTop="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="08:00"
+                    />
 
-            <ImageView
-                android:layout_marginStart="220dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/clock"
-                app:tint="@color/colorPrimaryDark" />
-            <TextView
-                android:id="@+id/time"
-                android:layout_marginTop="2dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
-                android:text="08:00"
-                />
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_marginStart="8dp"

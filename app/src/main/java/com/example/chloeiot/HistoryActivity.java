@@ -14,11 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.chloeiot.Adapter.AdapterHistory;
-import com.example.chloeiot.Adapter.AdapterStory;
 import com.example.chloeiot.Model.ModelHistory;
-import com.example.chloeiot.Model.ModelStory;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -56,7 +53,7 @@ public class HistoryActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull AdapterHistory holder, int position, @NonNull ModelHistory modelHistory) {
 
-                final String key =getRef(position).getKey();
+//                final String key =getRef(position).getKey();
 
 //                holder.view.setOnClickListener(new View.OnClickListener() {
 //                    @Override
@@ -108,7 +105,13 @@ public class HistoryActivity extends AppCompatActivity {
             }
         });
 
-
+        buttonDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerFragment datePickerFragment = new DatePickerFragment();
+                datePickerFragment.show(getSupportFragmentManager(),"MyFragment");
+            }
+        });
 
     }
 
