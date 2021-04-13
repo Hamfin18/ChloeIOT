@@ -22,10 +22,16 @@
             android:text="Filter"
             />
         <Button
+            android:id="@+id/buttonReset"
+            android:text="Reset"
+            android:textAllCaps="false"
+            android:layout_marginStart="190dp"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"/>
+        <Button
             android:id="@+id/buttonDate"
             android:layout_width="wrap_content"
             android:layout_height="38dp"
-            android:layout_marginStart="275dp"
             android:text="Date"
             android:textAllCaps="false"
             android:textAlignment="center"
