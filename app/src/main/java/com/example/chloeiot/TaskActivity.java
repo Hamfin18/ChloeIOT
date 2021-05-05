@@ -30,7 +30,7 @@ public class TaskActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
-                    //keren ajaa
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //bikin tombol back
 
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'></font>")); //SET TOP NAV TITLE
@@ -52,23 +52,25 @@ public class TaskActivity extends AppCompatActivity {
         buttSiram.setOnClickListener(new View.OnClickListener() {                       //ON CLICK SIRAM
             @Override
             public void onClick(View view) {
+                
+                reff= FirebaseDatabase.getInstance().getReference().child("InWatering").child("Value");
 
+                reff.setValue(2);
 
-                reff= FirebaseDatabase.getInstance().getReference().child("InsWatering");
                 reff.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         String Status=dataSnapshot.getValue().toString();
-                        if (Status.equals("on")){
+                        if (Status.equals("2")){
                             Context context = getApplicationContext();
-                            CharSequence text = "Penyiraman Berhasil";
+                            CharSequence text = "Sedang Menyiram";
                             Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
                             toast.show();
                         }
-                        if (Status.equals("off")){
+                        if (Status.equals("1")){
                             Context context = getApplicationContext();
-                            CharSequence text = "Gagal";
+                            CharSequence text = "selesai";
                             Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
                             toast.show();
                         }

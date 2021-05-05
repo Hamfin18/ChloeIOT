@@ -15,10 +15,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.chloeiot.Adapter.AdapterHistory;
-import com.example.chloeiot.Model.ModelHistory;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,8 +24,6 @@ public class DatePickerFragment extends DialogFragment {
     public CalendarView cvCalendar;
     public RecyclerView recyclerView;
     public String Date;
-    private FirebaseRecyclerOptions<ModelHistory> options;
-    private FirebaseRecyclerAdapter<ModelHistory, AdapterHistory> adapter;
     private DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("History");
     @Nullable
 

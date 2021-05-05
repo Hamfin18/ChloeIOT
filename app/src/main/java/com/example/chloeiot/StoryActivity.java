@@ -1,10 +1,5 @@
 package com.example.chloeiot;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
@@ -13,6 +8,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.chloeiot.Adapter.AdapterStory;
@@ -98,7 +98,4 @@ public class StoryActivity extends AppCompatActivity {
         return true;
     }
 
-    public  void jadi(String foto,AdapterStory story){
-
-    }
 }

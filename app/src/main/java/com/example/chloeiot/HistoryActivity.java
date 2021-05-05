@@ -44,6 +44,8 @@ public class HistoryActivity extends AppCompatActivity {
         buttonReset=(Button)findViewById(R.id.buttonReset);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+
+        //Data diurutkan berdasarkan yang terbaru
         linearLayoutManager.setReverseLayout(true);
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setHasFixedSize(true);
