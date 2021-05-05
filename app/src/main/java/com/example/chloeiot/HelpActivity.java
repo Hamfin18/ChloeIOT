@@ -1,10 +1,5 @@
 package com.example.chloeiot;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
@@ -14,6 +9,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chloeiot.Adapter.AdapterAbout;
 import com.example.chloeiot.Model.ModelHelp;
@@ -35,7 +35,7 @@ public class HelpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_help);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //bikin tombol back
-        getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'></font>")); //SET TOP NAV TITLE
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'>Help</font>")); //SET TOP NAV TITLE
 
         feedbackButton =(Button)findViewById(R.id.feedback_help);
         recyclerView =(RecyclerView)findViewById(R.id.recyclerViewHelp);

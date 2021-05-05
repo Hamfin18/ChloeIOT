@@ -37,7 +37,7 @@ public class StoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_story);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //bikin tombol back
-        getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'></font>")); //SET TOP NAV TITLE
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'>Story</font>")); //SET TOP NAV TITLE
 
         recyclerView= findViewById(R.id.recyclerViewStory);
 

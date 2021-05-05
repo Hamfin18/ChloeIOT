@@ -1,11 +1,11 @@
 package com.example.chloeiot;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AppInfoActivity extends AppCompatActivity {
 
@@ -14,7 +14,7 @@ public class AppInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_info);
 
-        getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'></font>")); //SET TOP NAV TITLE
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'>App Info</font>")); //SET TOP NAV TITLE
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //bikin tombol back
 
