@@ -35,7 +35,7 @@ public class HelpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_help);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //bikin tombol back
-        getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'>Help</font>")); //SET TOP NAV TITLE
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Help</font>")); //SET TOP NAV TITLE
 
         feedbackButton =(Button)findViewById(R.id.feedback_help);
         recyclerView =(RecyclerView)findViewById(R.id.recyclerViewHelp);

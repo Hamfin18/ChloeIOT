@@ -29,7 +29,7 @@ public class TargetHelp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_target_help);
 
-        getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'></font>")); //SET TOP NAV TITLE
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>FAQ</font>")); //SET TOP NAV TITLE
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //bikin tombol back
 
         judulHelp=(TextView)findViewById(R.id.judulHelp);

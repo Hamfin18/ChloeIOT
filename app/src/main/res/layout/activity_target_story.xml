@@ -17,7 +17,7 @@
             android:orientation="vertical">
         <TextView
             android:id="@+id/judulnya"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,6 +33,7 @@
             tools:layout_marginStart="10dp" />
         <ImageView
             android:id="@+id/fotonya"
+            android:scaleType="fitXY"
             android:layout_width="match_parent"
             android:layout_height="200dp"/>
 

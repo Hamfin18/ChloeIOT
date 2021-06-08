@@ -33,7 +33,7 @@ public class TaskActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //bikin tombol back
 
-        getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'>Task</font>")); //SET TOP NAV TITLE
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Task</font>")); //SET TOP NAV TITLE
 
         buttCekSuhu =(Button)findViewById(R.id.buttCekHumidity);
         progBar =(ProgressBar)findViewById(R.id.progress_bar);
