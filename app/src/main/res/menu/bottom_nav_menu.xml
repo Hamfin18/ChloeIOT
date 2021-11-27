@@ -22,7 +22,5 @@
         android:title="About"
         />
 </group>
-    <group>
-
-    </group>
+  
 </menu>

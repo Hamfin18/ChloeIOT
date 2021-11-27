@@ -137,7 +137,7 @@ public class TaskActivity extends AppCompatActivity {
 
                     progBar.setProgress(Integer.valueOf(Suhu));
                     angka_progress.setText(Suhu+"%");
-                    soil_moisture.setText("Soil Moisture");
+                    soil_moisture.setText("Soil Dryness");
                 }
 
                 @Override
