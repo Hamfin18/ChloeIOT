@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -74,19 +75,36 @@ public class TaskActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                        String Status=dataSnapshot.getValue().toString();
+                        final String Status=dataSnapshot.getValue().toString();
                         if (Status.equals("2")){
                             Context context = getApplicationContext();
                             CharSequence text = "Sedang Menyiram";
                             Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
                             toast.show();
                         }
-                        if (Status.equals("1")){
-                            Context context = getApplicationContext();
-                            CharSequence text = "selesai";
-                            Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
-                            toast.show();
-                        }
+                        final Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (Status.equals("1")){
+                                    Context context = getApplicationContext();
+                                    CharSequence text = "Penyimaran Berhasil";
+                                    Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
+                                    toast.show();
+                                }else{
+                                    Context context = getApplicationContext();
+                                    CharSequence text = "Penyiraman gagal";
+                                    Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
+                                    toast.show();
+                                }
+                                }
+                        }, 5000);
+//                        if (Status.equals("1")){
+//                            Context context = getApplicationContext();
+//                            CharSequence text = "selesai";
+//                            Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
+//                            toast.show();
+//                        }
 
                     }
 

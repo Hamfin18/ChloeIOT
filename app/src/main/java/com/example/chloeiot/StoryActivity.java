@@ -50,7 +50,7 @@ public class StoryActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
 
-        options = new FirebaseRecyclerOptions.Builder<  ModelStory>().setQuery(db, ModelStory.class).build();
+        options = new FirebaseRecyclerOptions.Builder<ModelStory>().setQuery(db, ModelStory.class).build();
         adapter = new FirebaseRecyclerAdapter<ModelStory, AdapterStory>(options) {
             @Override
             protected void onBindViewHolder(@NonNull AdapterStory holder, int position, @NonNull ModelStory modelStory) {
@@ -97,5 +97,7 @@ public class StoryActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {     // ADD BACK BUTTON
         return true;
     }
+
+
 
 }
