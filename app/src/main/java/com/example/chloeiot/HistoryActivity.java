@@ -1,6 +1,9 @@
 package com.example.chloeiot;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -8,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,7 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class HistoryActivity extends AppCompatActivity {
-
+    TextView tvNotif;
     Button buttonDate,buttonReset;
     RecyclerView recyclerView;
     private DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("History");
@@ -35,13 +39,25 @@ public class HistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
         overridePendingTransition(0,0);
-        String tanggal=getIntent().getStringExtra("date");
+        String tanggal = getIntent().getStringExtra("date");
 
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#000000'>History</font>")); //SET TOP NAV TITLE
 
         recyclerView=(RecyclerView)findViewById(R.id.recyclerViewHistory);
         buttonDate =(Button)findViewById(R.id.buttonDate);
         buttonReset=(Button)findViewById(R.id.buttonReset);
+        tvNotif =(TextView)findViewById(R.id.tvNotif);
+
+
+        int x = 0;
+
+        if(isConnected(HistoryActivity.this) == false){
+            tvNotif.setText("No Internet");
+        }else{
+            tvNotif.setText("");
+        }
+
+
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
 
@@ -74,6 +90,12 @@ public class HistoryActivity extends AppCompatActivity {
             };
             adapter.startListening();
             recyclerView.setAdapter(adapter);
+            if(isConnected(HistoryActivity.this) == false){
+                tvNotif.setText("No Internet");
+            }else{
+                tvNotif.setText("");
+            }
+
         }else{
             options = new FirebaseRecyclerOptions.Builder< ModelHistory>().setQuery(db, ModelHistory.class).build();
             adapter = new FirebaseRecyclerAdapter<ModelHistory, AdapterHistory>(options) {
@@ -105,6 +127,11 @@ public class HistoryActivity extends AppCompatActivity {
             };
             adapter.startListening();
             recyclerView.setAdapter(adapter);
+            if(isConnected(HistoryActivity.this) == false){
+                tvNotif.setText("No Internet");
+            }else{
+                tvNotif.setText("");
+            }
         };
 
 
@@ -168,8 +195,16 @@ public class HistoryActivity extends AppCompatActivity {
                 };
                 adapter.startListening();
                 recyclerView.setAdapter(adapter);
+                if(isConnected(HistoryActivity.this) == false){
+                    tvNotif.setText("No Internet");
+                }else{
+                    tvNotif.setText("");
+                }
+
             }
         });
+
+
     }
 
     @Override
@@ -178,5 +213,14 @@ public class HistoryActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
         overridePendingTransition(0,0);
 
+    }
+
+    private boolean isConnected(HistoryActivity historyActivity){
+        ConnectivityManager connectivityManager = (ConnectivityManager) historyActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo wifiConn = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        NetworkInfo mobileConn = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+        return (wifiConn !=null &&wifiConn.isConnected()) || (mobileConn !=null &&mobileConn.isConnected());
     }
 }

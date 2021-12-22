@@ -19,15 +19,5 @@
         app:layout_constraintVertical_bias="0.451"
         app:srcCompat="@drawable/app_info" />
 
-    <Button
-        android:id="@+id/buttonxxx"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="notif"
-        android:layout_marginTop="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

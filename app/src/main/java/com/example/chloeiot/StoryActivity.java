@@ -1,6 +1,9 @@
 package com.example.chloeiot;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -8,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class StoryActivity extends AppCompatActivity {
 
-
+    private TextView tvNotif;
     private RecyclerView recyclerView;
     private DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Artikel");
 
@@ -40,6 +44,7 @@ public class StoryActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Story</font>")); //SET TOP NAV TITLE
 
         recyclerView= findViewById(R.id.recyclerViewStory);
+        tvNotif =findViewById(R.id.tvNotif);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setReverseLayout(true);
@@ -48,6 +53,12 @@ public class StoryActivity extends AppCompatActivity {
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 //        SET TERIMA DATA TERBALIK
         recyclerView.setLayoutManager(linearLayoutManager);
+
+        if(isConnected(StoryActivity.this) == false){
+            tvNotif.setText("No Internet");
+        }else{
+            tvNotif.setText("");
+        }
 
 
         options = new FirebaseRecyclerOptions.Builder<ModelStory>().setQuery(db, ModelStory.class).build();
@@ -98,6 +109,14 @@ public class StoryActivity extends AppCompatActivity {
         return true;
     }
 
+    private boolean isConnected(StoryActivity storyActivity){
+        ConnectivityManager connectivityManager = (ConnectivityManager) storyActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo wifiConn = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        NetworkInfo mobileConn = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+        return (wifiConn !=null &&wifiConn.isConnected()) || (mobileConn !=null &&mobileConn.isConnected());
+    }
 
 
 }
